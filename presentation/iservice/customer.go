@@ -3,10 +3,10 @@ package iservice
 import (
 	"context"
 
-	"github.com/xiaoxuxiansheng/KnowledgeStore/application/customer/dto"
+	"github.com/xiaoxuxiansheng/KnowledgeStore/application/toc/dto"
 )
 
-type CustomerService interface {
+type ToCService interface {
 
 	/**
 	 * @brief: 注册用户
@@ -15,7 +15,7 @@ type CustomerService interface {
 	 * 1) 调用 user domain 完成用户注册
 	 * 2）调用 account domain 创建用户账户
 	 */
-	Register(ctx context.Context, req *dto.RegisterReqDto) (*dto.RegisterRespDto, error)
+	RegisterCustomer(ctx context.Context, req *dto.RegisterReqDto) (*dto.RegisterRespDto, error)
 
 	/**
 	 * @brief: 用户登录
@@ -23,7 +23,7 @@ type CustomerService interface {
 	 * @return: dto.LoginRespDto——登录响应参数
 	 * 1) 调用 account domain 校验用户是否合法
 	 */
-	Login(ctx context.Context, req *dto.LoginReqDto) (*dto.LoginRespDto, error)
+	LoginCustomer(ctx context.Context, req *dto.LoginReqDto) (*dto.LoginRespDto, error)
 
 	/**
 	 * @brief: 检索商铺
@@ -31,7 +31,7 @@ type CustomerService interface {
 	 * @return: dto.GetStoresRespDto——检索店铺响应参数
 	 * 1) 调用 store domain 检索店铺
 	 */
-	GetStores(ctx context.Context, req *dto.GetStoresReqDto) (*dto.GetStoresRespDto, error)
+	ListStore(ctx context.Context, req *dto.GetStoresReqDto) (*dto.GetStoresRespDto, error)
 
 	/**
 	 * @brief: 检索商品
@@ -39,8 +39,9 @@ type CustomerService interface {
 	 * @return: dto.GetGoodsRespDto——检索店铺响应参数
 	 * 1) 调用 good domain 检索商品
 	 */
-	GetGoods(ctx context.Context, req *dto.GetGoodsReqDto) (*dto.GetGoodsRespDto, error)
+	ListGoods(ctx context.Context, req *dto.ListGoodsReqDto) (*dto.ListGoodsRespDto, error)
 
+	QueryGoods(ctx context.Context, req *dto.QueryGoodsReqDto) (*dto.QueryGoodsRespDto, error)
 	/**
 	 * @brief: 购买商品
 	 * @param: dto.PurchaseGoodsReqDto——购买商品请求参数
@@ -49,7 +50,7 @@ type CustomerService interface {
 	 * 2) 调用 order domain 创建订单
 	 * 3) 调用 good domain 扣减商品
 	 */
-	PurchaseGoods(ctx context.Context, req *dto.PurchaseGoodsReqDto) (*dto.PurchaseGoodsRespDto, error)
+	BuyGoods(ctx context.Context, req *dto.BuyGoodsReqDto) (*dto.BuyGoodsRespDto, error)
 
 	/**
 	 * @brief: 支付订单

@@ -5,11 +5,13 @@ import (
 
 	"github.com/xiaoxuxiansheng/KnowledgeStore/domain/account/entity"
 	"github.com/xiaoxuxiansheng/KnowledgeStore/domain/account/south"
+	"github.com/xiaoxuxiansheng/KnowledgeStore/infrastructure/mysql"
 )
 
-type Dao struct{}
+type Dao struct {
+}
 
-func NewDao() south.Repository {
+func NewDao(mysqlClient mysql.MysqlClient) south.Repository {
 	return &Dao{}
 }
 
@@ -21,6 +23,6 @@ func (d *Dao) GetAccount(ctx context.Context, vo *entity.AccountVo) (*entity.Acc
 	return nil, nil
 }
 
-func (d *Dao)Transaction(ctx context.Context, payer *entity.AccountEntity, payee *entity.AccountEntity, tx *entity.TransactionEntity) error{
-	return nil 
+func (d *Dao) Transaction(ctx context.Context, payer *entity.AccountEntity, payee *entity.AccountEntity, tx *entity.TransactionEntity) error {
+	return nil
 }

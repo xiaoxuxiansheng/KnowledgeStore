@@ -3,9 +3,10 @@ package service
 import (
 	"context"
 
-	"github.com/xiaoxuxiansheng/KnowledgeStore/application/business/dto"
+	"github.com/xiaoxuxiansheng/KnowledgeStore/application/tob/dto"
 	"github.com/xiaoxuxiansheng/KnowledgeStore/domain/user/north"
 	"github.com/xiaoxuxiansheng/KnowledgeStore/presentation/iservice"
+
 	"go.uber.org/dig"
 )
 
@@ -16,7 +17,7 @@ type Service struct {
 	goodsService    north.IService
 }
 
-func NewService(param ServiceParam) iservice.BusinessService {
+func NewService(param ServiceParam) iservice.ToBService {
 	return &Service{
 		merchantService: param.MerchantService,
 		accountService:  param.AccountService,
@@ -40,8 +41,10 @@ type ServiceParam struct {
  * 1) 调用 merchant domain 完成用户注册
  * 2）调用 account domain 创建商户账户
  */
-func (s *Service) Register(ctx context.Context, req *dto.RegisterReqDto) (*dto.RegisterRespDto, error) {
-	return nil, nil
+func (s *Service) RegisterBusiness(ctx context.Context, req *dto.RegisterBusinessReqDto) error {
+	// 1) 注册 business 实例
+	// 2) 创建 business 账户
+	return nil
 }
 
 /**
@@ -50,8 +53,9 @@ func (s *Service) Register(ctx context.Context, req *dto.RegisterReqDto) (*dto.R
  * @return: dto.LoginRespDto——登录响应参数
  * 1) 调用 account domain 校验商户账号是否合法
  */
-func (s *Service) Login(ctx context.Context, req *dto.LoginReqDto) (*dto.LoginRespDto, error) {
-	return nil, nil
+func (s *Service) LoginBusiness(ctx context.Context, req *dto.LoginBusinessReqDto) error {
+	// 1) 校验 business 账号是否合法
+	return nil
 }
 
 /**
@@ -61,8 +65,10 @@ func (s *Service) Login(ctx context.Context, req *dto.LoginReqDto) (*dto.LoginRe
  * 1) 调用 merchant domain 校验商户账号是否合法
  * 2) 调用 store domain 创建店铺
  */
-func (s *Service) CreateStore(ctx context.Context, req *dto.CreateStoreReqDto) (*dto.CreateStoreRespDto, error) {
-	return nil, nil
+func (s *Service) CreateStore(ctx context.Context, req *dto.CreateStoreReqDto) error {
+	// 1) 查询商家信息
+	// 2) 创建商铺信息
+	return nil
 }
 
 /**
@@ -72,8 +78,10 @@ func (s *Service) CreateStore(ctx context.Context, req *dto.CreateStoreReqDto) (
  * 1) 调用 store domain 获取并锁定店铺
  * 2) 调用 store domain 更新店铺状态为上线
  */
-func (s *Service) OnlineStore(ctx context.Context, req *dto.OnlineStoreReqDto) (*dto.OnlineStoreRespDto, error) {
-	return nil, nil
+func (s *Service) OnlineStore(ctx context.Context, req *dto.OnlineStoreReqDto) error {
+	// 1) 查询店铺信息
+	// 2) 更新店铺信息
+	return nil
 }
 
 /**
@@ -83,8 +91,8 @@ func (s *Service) OnlineStore(ctx context.Context, req *dto.OnlineStoreReqDto) (
  * 1) 调用 store domain 获取并锁定店铺
  * 2) 调用 store domain 更新店铺状态为下线
  */
-func (s *Service) OfflineStore(ctx context.Context, req *dto.OfflineStoreReqDto) (*dto.OfflineStoreRespDto, error) {
-	return nil, nil
+func (s *Service) OfflineStore(ctx context.Context, req *dto.OfflineStoreReqDto) error {
+	return nil
 }
 
 /**
@@ -94,8 +102,8 @@ func (s *Service) OfflineStore(ctx context.Context, req *dto.OfflineStoreReqDto)
  * 1) 调用 store domain 查询店铺校验合法性
  * 2) 调用 goods domain 创建商品
  */
-func (s *Service) CreateGoods(ctx context.Context, req *dto.CreateGoodsReqDto) (*dto.CreateGoodsRespDto, error) {
-	return nil, nil
+func (s *Service) CreateGoods(ctx context.Context, req *dto.CreateGoodsReqDto) error {
+	return nil
 }
 
 /**
@@ -105,8 +113,8 @@ func (s *Service) CreateGoods(ctx context.Context, req *dto.CreateGoodsReqDto) (
  * 1) 调用 goods domain 获取并锁定商品
  * 2) 调用 goods domain 更新商品为发布状态
  */
-func (s *Service) OnlineGoods(ctx context.Context, req *dto.OnlineGoodsReqDto) (*dto.OnlineGoodsRespDto, error) {
-	return nil, nil
+func (s *Service) OnlineGoods(ctx context.Context, req *dto.OnlineGoodsReqDto) error {
+	return nil
 }
 
 /**
@@ -116,6 +124,6 @@ func (s *Service) OnlineGoods(ctx context.Context, req *dto.OnlineGoodsReqDto) (
  * 1) 调用 goods domain 获取并锁定商品
  * 2) 调用 goods domain 更新商品为下线状态
  */
-func (s *Service) OfflineGoods(ctx context.Context, req *dto.OfflineGoodsReqDto) (*dto.OfflineGoodsRespDto, error) {
-	return nil, nil
+func (s *Service) OfflineGoods(ctx context.Context, req *dto.OfflineGoodsReqDto) error {
+	return nil
 }

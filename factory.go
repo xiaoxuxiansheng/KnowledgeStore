@@ -18,11 +18,15 @@ import (
 	userdomain "github.com/xiaoxuxiansheng/KnowledgeStore/domain/user/service"
 
 	//application
-	businessapp "github.com/xiaoxuxiansheng/KnowledgeStore/application/business/service"
-	customerapp "github.com/xiaoxuxiansheng/KnowledgeStore/application/customer/service"
+	businessapp "github.com/xiaoxuxiansheng/KnowledgeStore/application/tob/service"
+	customerapp "github.com/xiaoxuxiansheng/KnowledgeStore/application/toc/service"
 
 	// presentation
-	"github.com/xiaoxuxiansheng/KnowledgeStore/presentation"
+	businesspresentation "github.com/xiaoxuxiansheng/KnowledgeStore/presentation/tob"
+	customerpresentation "github.com/xiaoxuxiansheng/KnowledgeStore/presentation/toc"
+
+	// server
+	"github.com/xiaoxuxiansheng/KnowledgeStore/server"
 
 	"go.uber.org/dig"
 )
@@ -66,15 +70,16 @@ func provideApplication(c *dig.Container) {
 }
 
 func providePresentation(c *dig.Container) {
-	c.Provide(presentation.NewController)
+	c.Provide(businesspresentation.NewController)
+	c.Provide(customerpresentation.NewController)
 }
 
-func GetServer() Server {
-	var server Server
-	if err := container.Invoke(func(_server Server) {
-		server = _server
+func GetServer() server.Server {
+	var s server.Server
+	if err := container.Invoke(func(_server server.Server) {
+		s = _server
 	}); err != nil {
 		panic(err)
 	}
-	return server
+	return s
 }

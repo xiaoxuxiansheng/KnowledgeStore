@@ -39,25 +39,37 @@ type GetStoresRespDto struct {
 /**
  * @brief: 检索商品请求参数
  */
-type GetGoodsReqDto struct {
+type ListGoodsReqDto struct {
 }
 
 /**
  * @brief: 检索商品响应参数
  */
-type GetGoodsRespDto struct {
+type ListGoodsRespDto struct {
+}
+
+/**
+ * @brief: 查询商品详情请求参数
+ */
+type QueryGoodsReqDto struct {
+}
+
+/**
+ * @brief: 查询商品详情响应参数
+ */
+type QueryGoodsRespDto struct {
 }
 
 /**
  * @brief: 购买商品请求参数
  */
-type PurchaseGoodsReqDto struct {
+type BuyGoodsReqDto struct {
 }
 
 /**
  * @brief: 购买商品响应参数
  */
-type PurchaseGoodsRespDto struct {
+type BuyGoodsRespDto struct {
 }
 
 /**
