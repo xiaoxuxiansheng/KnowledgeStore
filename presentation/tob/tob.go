@@ -40,7 +40,6 @@ func (ctrl *Controller) EchoRet(c *gin.Context, err error, data interface{}) {
 // @Accept application/json
 // @Produce application/json
 // @Param def body RegisterBusinessReqVo true "注册商家账号请求参数"
-// @Success 200 {object} Response
 // @Router /api/tob/v1/business/register [post]
 func (ctrl *Controller) RegisterBusiness(c *gin.Context) {
 	var req RegisterBusinessReqVo

@@ -1,8 +1,6 @@
 package tob
 
 import (
-	"fmt"
-
 	"github.com/xiaoxuxiansheng/KnowledgeStore/application/tob/dto"
 )
 
@@ -10,37 +8,6 @@ const (
 	ErrnoUnknown = -1
 	ErrnoSuccess = 0
 )
-
-type Errorer interface {
-	Error() error
-}
-
-type Response struct {
-	// 错误码
-	Errno int `json:"errno"`
-	// 错误信息
-	Errmsg string `json:"errmsg"`
-}
-
-func (r *Response) Error() error {
-	if r.Errno != ErrnoSuccess {
-		return fmt.Errorf("errno: %d, errmsg: %s", r.Errno, r.Errmsg)
-	}
-	return nil
-}
-
-var successResponse = Response{}
-
-func SucessResponse() Response {
-	return successResponse
-}
-
-func FailReponse(err error) Response {
-	return Response{
-		Errno:  ErrnoUnknown,
-		Errmsg: err.Error(),
-	}
-}
 
 /**
  * @brief: 注册商家账号请求参数
@@ -135,6 +102,8 @@ type CreateGoodsReqVo struct {
 	AccountId string `json:"account_id"`
 	// 店铺名称
 	StoreName string `json:"store_name"`
+	// 商品分类
+	Category string `json:"category"`
 	// 商品名称
 	GoodsName string `json:"goods_name"`
 	// 商品内容
@@ -145,6 +114,7 @@ func (c *CreateGoodsReqVo) ToDto() *dto.CreateGoodsReqDto {
 	return &dto.CreateGoodsReqDto{
 		AccountId:    c.AccountId,
 		StoreName:    c.StoreName,
+		Category:     c.Category,
 		GoodsName:    c.GoodsName,
 		GoodsContent: c.GoodsContent,
 	}

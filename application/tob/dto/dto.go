@@ -58,6 +58,8 @@ type CreateGoodsReqDto struct {
 	AccountId string `json:"account_id"`
 	// 店铺名称
 	StoreName string `json:"store_name"`
+	// 商品分类
+	Category string `json:"category"`
 	// 商品名称
 	GoodsName string `json:"goods_name"`
 	// 商品内容

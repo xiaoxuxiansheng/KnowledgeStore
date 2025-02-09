@@ -70,6 +70,8 @@ func (s *Server) registerCustomerRouter() {
 	group.GET("/goods/query", s.toCCtrl.QueryGoods)
 	// 购买商品
 	group.POST("/goods/buy", s.toCCtrl.BuyGoods)
+	// 查看订单列表
+	group.POST("/order/list", s.toCCtrl.ListOrder)
 	// 支付订单
 	group.POST("/order/pay", s.toCCtrl.PayOrder)
 }
