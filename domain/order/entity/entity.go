@@ -1,16 +1,16 @@
 package entity
 
 type OrderEntity struct {
-	OrderId    string
-	UserId     string
-	MerchantId string
-	GoodsIds   []string
-	Points     int64
+	OrderId   string
+	UserId    string
+	StoreName string
+	GoodsName string
+	Points    int
 }
 
 type OrderVo struct {
-	UserId     string
-	MerchantId string
-	GoodsIds   []string
-	Points     int64
+	UserId    string
+	StoreName string
+	GoodsName string
+	Points    int
 }

@@ -1,14 +1,17 @@
 package entity
 
-type GoodsType int
-
 type GoodsEntity struct {
-	// 商品唯一 id
-	GoodsId string
+	// 商品名称
+	GoodsName string
 	// 商品从属的店铺 id
-	StoreId string
+	MerchantId string
 	// 商品类型
-	Type GoodsType
+	Category string
+	// 商品类型
+	GoodsContent string
+	// 店铺名称
+	StoreName string
+	Points    int
+	// 是否已拥有过该商品
+	Owned bool
 }
-
-type GoodsVo struct{}

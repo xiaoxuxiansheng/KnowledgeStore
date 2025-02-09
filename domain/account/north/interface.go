@@ -26,5 +26,5 @@ type IService interface {
 	 * @param: payer
 	 * @return: entity.AccountEntity——账户充血模型
 	 */
-	Transaction(ctx context.Context, payer *entity.AccountEntity, payee *entity.AccountEntity, tx *entity.TransactionVo) (*entity.TransactionEntity, error)
+	Transaction(ctx context.Context, payer *entity.AccountEntity, payee *entity.AccountEntity) (*entity.TransactionEntity, error)
 }

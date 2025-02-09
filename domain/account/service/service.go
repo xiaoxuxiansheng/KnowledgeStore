@@ -32,6 +32,6 @@ func (s *Service) GetAccount(ctx context.Context, vo *entity.AccountVo) (*entity
 	return nil, nil
 }
 
-func (s *Service) Transaction(ctx context.Context, payer *entity.AccountEntity, payee *entity.AccountEntity, tx *entity.TransactionVo) (*entity.TransactionEntity, error) {
+func (s *Service) Transaction(ctx context.Context, payer *entity.AccountEntity, payee *entity.AccountEntity) (*entity.TransactionEntity, error) {
 	return nil, nil
 }

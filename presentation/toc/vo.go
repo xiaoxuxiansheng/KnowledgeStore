@@ -236,9 +236,8 @@ type OrderDataVo struct {
 
 func NewListOrderRespVo(listDto *dto.ListOrderRespDto) *ListOrderRespVo {
 	return &ListOrderRespVo{
-		Status: listDto.Status,
-		Total:  listDto.Total,
-		List:   NewOrderDatas(listDto.List),
+		Total: listDto.Total,
+		List:  NewOrderDatas(listDto.List),
 	}
 }
 

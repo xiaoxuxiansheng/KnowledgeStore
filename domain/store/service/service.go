@@ -24,10 +24,18 @@ type ServiceParam struct {
 	Repo south.Repository
 }
 
-func (s *Service) CreateStore(ctx context.Context, vo *entity.StoreVo) (*entity.StoreEntity, error) {
-	return nil, nil
+func (s *Service) CreateStore(ctx context.Context, req *entity.StoreEntity) error {
+	return nil
 }
 
-func (s *Service) GetStores(ctx context.Context, opts ...north.QueryOption) ([]*entity.StoreEntity, error) {
-	return nil, nil
+func (s *Service) OnlineStore(ctx context.Context, req *entity.StoreEntity) error {
+	return nil
+}
+
+func (s *Service) OfflineStore(ctx context.Context, req *entity.StoreEntity) error {
+	return nil
+}
+
+func (s *Service) GetStores(ctx context.Context, opts ...north.QueryOption) ([]*entity.StoreEntity, int, error) {
+	return nil, 0, nil
 }

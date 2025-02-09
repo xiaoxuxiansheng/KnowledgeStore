@@ -24,14 +24,22 @@ type ServiceParam struct {
 	Repo south.Repository
 }
 
-func (s *Service) CreateOrder(ctx context.Context, vo *entity.OrderVo) (*entity.OrderEntity, error) {
+func (s *Service) CreateOrder(ctx context.Context, req *entity.OrderVo) (*entity.OrderEntity, error) {
 	return nil, nil
 }
 
-func (s *Service) PayOrder(ctx context.Context, entity *entity.OrderEntity) error {
+func (s *Service) LockOrder(ctx context.Context, req *entity.OrderEntity) (*entity.OrderEntity, error) {
+	return nil, nil
+}
+
+func (s *Service) UnlockOrder(ctx context.Context, req *entity.OrderEntity) error {
 	return nil
 }
 
-func (s *Service) GetOrders(ctx context.Context, opts ...north.QueryOption) ([]*entity.OrderEntity, error) {
-	return nil, nil
+func (s *Service) FinishOrder(ctx context.Context, req *entity.OrderEntity) error {
+	return nil
+}
+
+func (s *Service) GetOrders(ctx context.Context, opts ...north.QueryOption) ([]*entity.OrderEntity, int, error) {
+	return nil, 0, nil
 }

@@ -14,11 +14,11 @@ type IService interface {
 	 * @brief: 注册用户
 	 * @return: entity.MerchantEntity——商家充血模型
 	 */
-	Register(ctx context.Context) (*entity.MerchantEntity, error)
+	RegisterMerchant(ctx context.Context, req *entity.MerchantEntity) error
 	/**
 	 * @brief: 查询商家
 	 * @param: merchantId——商家唯一 id
 	 * @return: entity.MerchantEntity——商家充血模型
 	 */
-	GetMerchant(ctx context.Context, merchantId string) (*entity.MerchantEntity, error)
+	QueryMerchant(ctx context.Context, accountId string) (*entity.MerchantEntity, error)
 }

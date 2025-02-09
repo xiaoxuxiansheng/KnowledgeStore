@@ -24,10 +24,10 @@ type ServiceParam struct {
 	Repo south.Repository
 }
 
-func (s *Service) Register(ctx context.Context) (*entity.MerchantEntity, error) {
-	return nil, nil
+func (s *Service) RegisterMerchant(ctx context.Context, req *entity.MerchantEntity) error {
+	return nil
 }
 
-func (s *Service) GetMerchant(ctx context.Context, merchantId string) (*entity.MerchantEntity, error) {
+func (s *Service) QueryMerchant(ctx context.Context, accountId string) (*entity.MerchantEntity, error) {
 	return nil, nil
 }

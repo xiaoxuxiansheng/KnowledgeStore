@@ -24,8 +24,8 @@ func NewService(param ServiceParam) north.IService {
 	}
 }
 
-func (s *Service) Register(ctx context.Context) (*entity.UserEntity, error) {
-	return nil, nil
+func (s *Service) RegisterUser(ctx context.Context, req *entity.UserEntity) error {
+	return nil
 }
 
 func (s *Service) GetUser(ctx context.Context, userId string) (*entity.UserEntity, error) {

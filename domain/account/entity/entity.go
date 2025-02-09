@@ -14,10 +14,8 @@ const (
  * account 充血 entity
  */
 type AccountEntity struct {
-	// 账号归属身份唯一 id
-	UniqueId string
 	// 财富点数
-	Points int64
+	Points int
 	AccountVo
 }
 

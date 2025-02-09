@@ -25,26 +25,26 @@ type ServiceParam struct {
 }
 
 // 检索商品
-func (s *Service) GetGoods(ctx context.Context, opts ...north.QueryOption) ([]*entity.GoodsEntity, error) {
-	return nil, nil
+func (s *Service) GetGoods(ctx context.Context, opts ...north.QueryOption) ([]*entity.GoodsEntity, int, error) {
+	return nil, 0, nil
 }
 
 // 创建商品
-func (s *Service) CreateGoods(ctx context.Context, vo *entity.GoodsVo) (*entity.GoodsEntity, error) {
-	return nil, nil
+func (s *Service) CreateGoods(ctx context.Context, req *entity.GoodsEntity) error {
+	return nil
 }
 
 // 发布商品
-func (s *Service) OnlineGoods(ctx context.Context, entity *entity.GoodsEntity) error {
+func (s *Service) OnlineGoods(ctx context.Context, req *entity.GoodsEntity) error {
 	return nil
 }
 
 // 下线商品
-func (s *Service) OfflineGoods(ctx context.Context, entity *entity.GoodsEntity) error {
+func (s *Service) OfflineGoods(ctx context.Context, req *entity.GoodsEntity) error {
 	return nil
 }
 
 // 购买商品
-func (s *Service) PurchaseGoods(ctx context.Context, entity *entity.GoodsEntity) error {
+func (s *Service) PurchaseGoods(ctx context.Context, req *entity.GoodsEntity) error {
 	return nil
 }

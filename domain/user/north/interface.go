@@ -14,7 +14,7 @@ type IService interface {
 	 * @brief: 注册用户
 	 * @return: entity.UserEntity——用户充血模型
 	 */
-	Register(ctx context.Context) (*entity.UserEntity, error)
+	RegisterUser(ctx context.Context, req *entity.UserEntity) error
 	/**
 	 * @brief: 查询用户
 	 * @param: userId——用户唯一 id
